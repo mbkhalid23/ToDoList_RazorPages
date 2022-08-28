@@ -1,4 +1,37 @@
 ﻿@page
 @model ToDoList.Pages.Todo.IndexModel
-@{
-}
+
+<div class="container p-3 w-75">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2>ToDo List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-page="Create" class="btn btn-primary">
+                <i class="bi bi-plus-square"></i>&nbsp New Task 
+            </a>
+        </div>
+    </div>
+    
+
+    <table class="table table-bordered table-striped mt-4">
+        <thead> 
+            <tr>
+                <th width="60%"><h5>Tasks</h5></th>
+                <th><h5>Due Date</h5></th>
+                <th><h5>Priority</h5></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var task in Model.ToDos)
+            {
+                <tr>
+                    <td><input type="checkbox" class="form-check-input"/>&nbsp&nbsp&nbsp&nbsp @task.Task</td>
+                    <td>@task.DueDate.Value.ToString("dd MMM, yyyy")</td>
+                    <td>@task.priority</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
