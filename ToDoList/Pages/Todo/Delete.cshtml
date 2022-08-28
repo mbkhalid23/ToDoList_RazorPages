@@ -2,6 +2,7 @@
 @model ToDoList.Pages.Todo.DeleteModel
 <div class="container w-50">
     <form method="post">
+        <input hidden asp-for="task.Id" />  
         <div class=" rounded-4 bg-light p-3 mt-4">
             <div class="row pb-2">
                 <h2 class="text-primary pl-3">Delete Task</h2>

@@ -15,15 +15,22 @@ namespace ToDoList.Pages.Todo
         {
             _db = db;
         }
-        public void OnGet()
+        public void OnGet(int id)
         {
+            task = _db.ToDos.Find(id);
         }
 
         public async Task<IActionResult> OnPost()
         {
-            await _db.ToDos.AddAsync(task);
-            await _db.SaveChangesAsync();
-            return RedirectToPage("Tasks");
+            var id = _db.ToDos.Find(task.Id);
+            if(id != null)
+            {
+                _db.ToDos.Remove(id);
+                await _db.SaveChangesAsync();
+                return RedirectToPage("Tasks");
+            }
+            return Page();
+            
         }
     }
 }
