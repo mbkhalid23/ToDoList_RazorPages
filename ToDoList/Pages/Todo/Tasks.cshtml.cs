@@ -5,10 +5,10 @@ using ToDoList.Models;
 
 namespace ToDoList.Pages.Todo
 {
-    public class IndexModel : PageModel
+    public class TasksModel : PageModel
     {
         private readonly ToDoContext _db;
-        public IndexModel(ToDoContext db)
+        public TasksModel(ToDoContext db)
         {
             _db = db;
         }
@@ -18,6 +18,5 @@ namespace ToDoList.Pages.Todo
             ToDos = _db.ToDos.ToList();
         }
 
-        public void
     }
 }
