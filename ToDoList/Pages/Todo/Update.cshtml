@@ -10,14 +10,17 @@
             <div class="mb-3">
                 <label asp-for="task.Task"></label>
                 <input asp-for="task.Task" class="form-control"/>
+                <span asp-validation-for="task.Task" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="task.DueDate"></label>
                 <input asp-for="task.DueDate" class="form-control" />
+                <span asp-validation-for="task.DueDate" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="task.priority"></label>
                 <input asp-for="task.priority" class="form-control" />
+                <span asp-validation-for="task.priority" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
             <a asp-page="/Todo/Tasks" class="btn btn-secondary">Back to List</a>

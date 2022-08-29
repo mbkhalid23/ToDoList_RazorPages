@@ -21,9 +21,13 @@ namespace ToDoList.Pages.Todo
 
         public async Task<IActionResult> OnPost()
         {
-            await _db.ToDos.AddAsync(task);
-            await _db.SaveChangesAsync();
-            return RedirectToPage("Tasks");
+            if (ModelState.IsValid)
+            {
+                await _db.ToDos.AddAsync(task);
+                await _db.SaveChangesAsync();
+                return RedirectToPage("Tasks");
+            }
+            return Page();
         }
     }
 }

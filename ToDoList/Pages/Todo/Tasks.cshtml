@@ -17,10 +17,10 @@
     <table class="table table-bordered table-striped mt-4">
         <thead> 
             <tr>
-                <th width="50%"><h6>Tasks</h6></th>
-                <th><h6>Due Date</h6></th>
-                <th><h6>Priority</h6></th>
-                <th width="15%"><h6>Edit/Delete</h6></th>
+                <th width="50%">Tasks</th>
+                <th>Due Date</th>
+                <th>Priority</th>
+                <th width="15%">Edit/Delete</th>
             </tr>
         </thead>
 
@@ -29,7 +29,16 @@
             {
                 <tr>
                     <td><input type="checkbox" class="form-check-input"/>&nbsp&nbsp&nbsp&nbsp @task.Task</td>
-                    <td>@task.DueDate.Value.ToString("dd MMM, yyyy")</td>
+                    @{
+                        if (task.DueDate != null)
+                        {
+                            <td>@task.DueDate.Value.ToString("dd MMM, yyyy")</td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    }
                     <td>@task.priority</td>
                     <td>
                         <a asp-page="Update" asp-route-id="@task.Id" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
